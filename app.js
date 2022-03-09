@@ -15,10 +15,10 @@ const server = http.createServer((req, res) => {
         res.write("</body>");
         res.write("</html>");
         res.end();
-        const formAdd = document.getElementById('add');
-        formAdd.addEventListener ('submit', () => {
-            url = url + '/create-user';
-        })
+        // const formAdd = document.getElementById('add');
+        // formAdd.addEventListener ('submit', () => {
+        //     url = url + '/create-user';
+        // })
     } else if (url === "/users") {
         // console.log("Home");
         res.setHeader("Content-Type", "text/html");
