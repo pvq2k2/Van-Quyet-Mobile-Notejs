@@ -1,9 +1,8 @@
-exports.checkAuth = (req, res, next) => {
+export const checkAuth = (req, res, next) => {
     const isAdmin = true;
     if (isAdmin) {
-        console.log("Hello");
         next();
     } else {
-        console.log("1");
+        res.redirect('/');
     }
 }

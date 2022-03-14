@@ -1,6 +1,10 @@
-const express = require('express');
+import express from 'express';
+import router from '../src/router/product';
+import mongoose from 'mongoose';
 const app = express();
-const productRouter = require('./src/router/product');
+
+// const express = require('express');
+// const productRouter = require('./src/router/product');
 
 //middleware
 app.use(express.json());
@@ -10,9 +14,11 @@ app.get('/', (req, res) => {
     res.send("<h1>Home Page</h1>");
 });
 
-app.use('/api', productRouter);
+app.use('/api', router);
 
-
+// connect database
+mongoose.connect("mongodb://localhost:27017/nodejs")
+    .then(() => console.log("Connect db thanh cong"))
 // Content
 const PORT = 3000
 app.listen(PORT, () => {
