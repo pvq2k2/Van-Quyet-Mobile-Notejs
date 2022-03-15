@@ -1,13 +1,16 @@
 import express from 'express';
 import router from '../src/router/product';
 import mongoose from 'mongoose';
+import cors from 'cors';
 const app = express();
+
 
 // const express = require('express');
 // const productRouter = require('./src/router/product');
 
 //middleware
 app.use(express.json());
+app.use(cors());
 
 // Routing
 app.get('/', (req, res) => {
@@ -20,7 +23,7 @@ app.use('/api', router);
 mongoose.connect("mongodb://localhost:27017/nodejs")
     .then(() => console.log("Connect db thanh cong"))
 // Content
-const PORT = 3000
+const PORT = 8000
 app.listen(PORT, () => {
     console.log(`Server running port ${PORT}`);
 })

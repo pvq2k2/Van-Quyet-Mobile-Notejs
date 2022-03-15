@@ -8,8 +8,8 @@ import { checkAuth } from '../middleware/checkAuth';
 const router = Router();
 
 router.get('/products', checkAuth, list);
-router.get('/products/:id', get);
-router.post('/products', checkAuth, create);
+router.get('/product/:id', get);
+router.post('/product', checkAuth, create);
 router.delete("/product/:id", remove);
 router.put("/product/:id", update);
 
