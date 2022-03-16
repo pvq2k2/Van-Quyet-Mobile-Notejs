@@ -1,5 +1,6 @@
 import express from 'express';
-import router from '../src/router/product';
+import productRouter from '../src/router/product';
+import categoryRouter from '../src/router/category';
 import mongoose from 'mongoose';
 import cors from 'cors';
 const app = express();
@@ -17,7 +18,8 @@ app.get('/', (req, res) => {
     res.send("<h1>Home Page</h1>");
 });
 
-app.use('/api', router);
+app.use('/api', productRouter);
+app.use('/api', categoryRouter);
 
 // connect database
 mongoose.connect("mongodb://localhost:27017/nodejs")
