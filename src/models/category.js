@@ -6,6 +6,9 @@ const categorySchema = new Schema({
         trim: true,
         required: true
     },
+    icon: {
+        type: String,
+    },
     slug: {
         type: String,
         lowercase: true,

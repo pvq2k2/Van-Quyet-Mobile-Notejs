@@ -2,6 +2,7 @@ import express from 'express';
 import productRouter from '../src/router/product';
 import categoryRouter from '../src/router/category';
 import userRouter from '../src/router/auth';
+import sliderRouter from '../src/router/slider';
 import mongoose from 'mongoose';
 import cors from 'cors';
 const app = express();
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 app.use('/api', productRouter);
 app.use('/api', categoryRouter);
 app.use('/api', userRouter);
+app.use('/api', sliderRouter);
 
 // connect database
 mongoose.connect("mongodb://localhost:27017/nodejs")

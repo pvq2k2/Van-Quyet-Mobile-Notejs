@@ -1,13 +1,15 @@
 import expressJWT from "express-jwt";
 
 export const requireSignin = expressJWT({
-    secret: "123456",
+    secret: "12345",
     algorithms: ["HS256"],
     requestProperty: "auth"
 });
 
 export const isAuth = (req, res, next) => {
-    const user = req.profile._id == req.auth.id;
+    console.log(req.auth)
+    console.log(req.profile)
+    const user = req.profile._id == req.auth._id;
     if (!user) {
         return res.status(402).json({
             message: "Bạn không được phép truy cập"

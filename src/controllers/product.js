@@ -29,12 +29,24 @@ export const get = async (req, res) => { // get a product
         res.json(products);    
     } catch (error) {
         res.status(400).json({
-            message: "Thêm sản phẩm không thành công"
+            message: "Tìm sản phẩm không thành công"
+        })
+    }
+}
+export const getViaSlug = async (req, res) => {
+    try {
+        const products = await Product.findOne({slug: req.params.slug}).exec();
+        console.log(Product.findOne({slug: req.params.slug}));
+        res.json(products);    
+    } catch (error) {
+        res.status(400).json({
+            message: "Đọc sản phẩm không thành công"
         })
     }
 }
 export const create = async (req, res) => { // create product
     req.body.slug = slugify(req.body.name);
+    console.log(req.body);
     try {
         const product = await new Product(req.body).save();
         res.json(product);    
