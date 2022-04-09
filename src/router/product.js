@@ -14,7 +14,7 @@ router.get('/products/:id', get);
 router.post('/product/:userId', requireSignin, isAuth, isAdmin, create);
 // router.post('/product', create);
 router.delete("/product/:id", remove);
-router.put("/product/:id", update);
+router.put("/product/:id/:userId", requireSignin, isAuth, isAdmin, update);
 
 router.param("userId", userById)
 
