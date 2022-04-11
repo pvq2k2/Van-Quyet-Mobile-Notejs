@@ -18,7 +18,10 @@ const productSchema = mongoose.Schema({
     },
     img: {
         type: String,
-
+    },
+    quantity: {
+        type: Number,
+        default: 1
     },
     category: {
         type: ObjectId,
